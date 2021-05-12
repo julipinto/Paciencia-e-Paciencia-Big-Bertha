@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import javafx.stage.Stage;
+
 
 /**
  * Menu com as opções pra iniciar o jogo
@@ -21,7 +23,8 @@ public class Menu {
             System.out.println("\n\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
 
             System.out.println("\nO que deseja?\n"
-            + "[1] - Iniciar Jogo.\n"
+            + "[1] - Iniciar Jogo Paciência.\n"
+            + "[2] - Iniciar Jogo Paciência Big Bertha.\n"
             + "[0] - Encerrar Jogo.\n");
             opcao = scan.nextInt();
 
@@ -31,6 +34,13 @@ public class Menu {
                     new MenuPaciencia(1);//opção para iniciar o jogo de paciência
                     break;
 
+                case 2: 
+                try {
+                    StartBertha.go();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 case 0:
                     continuarJogar = false;//opção para encerrar o programa
                     break;
@@ -39,5 +49,27 @@ public class Menu {
                     System.out.println(ANSI_CYAN + "Você digitou uma opção inválida!!! Escolha uma das opções disponíveis." + ANSI_RESET);
             }
         }while(continuarJogar);
+        // do{
+        //     System.out.println("\n\t\t♠BEM VINDO AO JOGO PACIÊNCIA♠");
+
+        //     System.out.println("\nO que deseja?\n"
+        //     + "[1] - Iniciar Jogo.\n"
+        //     + "[0] - Encerrar Jogo.\n");
+        //     opcao = scan.nextInt();
+
+        //     switch(opcao){
+
+        //         case 1:
+        //             new MenuPaciencia(1);//opção para iniciar o jogo de paciência
+        //             break;
+
+        //         case 0:
+        //             continuarJogar = false;//opção para encerrar o programa
+        //             break;
+
+        //         default:
+        //             System.out.println(ANSI_CYAN + "Você digitou uma opção inválida!!! Escolha uma das opções disponíveis." + ANSI_RESET);
+        //     }
+        // }while(continuarJogar);
     }
 }
