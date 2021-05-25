@@ -97,6 +97,9 @@ public class Carta {
         this.visivel = face;
     }
 
+    public String toPureString(){
+        return " [" + naipe +"  "+ valor +"  "+ naipe + "] ";
+    }
     
     /** 
      * Impressão da carta

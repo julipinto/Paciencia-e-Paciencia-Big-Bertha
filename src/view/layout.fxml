@@ -14,6 +14,24 @@
             <ImageView fx:id="comprada" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
          </children></HBox>
       <Button layoutX="214.0" layoutY="77.0" mnemonicParsing="false" onAction="#onComprarCarta" text="Comprar carta" />
-      <ListView fx:id="listView" layoutY="164.0" prefHeight="464.0" prefWidth="142.0" />
+      <HBox layoutX="1.0" layoutY="167.0" prefHeight="452.0" prefWidth="1153.0">
+         <children>
+            <ListView fx:id="fileira1" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira2" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira3" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira4" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira5" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira6" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira7" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira8" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira9" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira10" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira11" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira12" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira13" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira14" prefHeight="456.0" prefWidth="80.0" />
+            <ListView fx:id="fileira15" prefHeight="456.0" prefWidth="80.0" />
+         </children>
+      </HBox>
    </children>
 </Pane>
