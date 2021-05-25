@@ -16,12 +16,6 @@ public class StartBertha extends Application{
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    // StackPane raiz = new StackPane(); // 4
-    // Scene cena = new Scene(raiz, 800, 800); // 8
-
-    // palco.setTitle("Paciência Big Bertha"); // 9
-    // palco.setScene(cena); // 10
-    // palco.show(); // 
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("layout.fxml"));
     Parent root = fxmlLoader.load();
     Scene tela = new Scene(root);
