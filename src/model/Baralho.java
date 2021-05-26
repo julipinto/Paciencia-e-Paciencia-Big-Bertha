@@ -2,16 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
+import util.ListaDeCartas;
+
 
 /**
  * Classe que contém o baralho criado.
  * 
  * @author Adlla Katarine e Daniel Alves
  */
-public class Baralho {
+public class Baralho extends ListaDeCartas{
 
     private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
-    private ArrayList<Carta> baralho;
 
     /**
      * Construtor da classe
@@ -19,7 +20,7 @@ public class Baralho {
      * @param quantidadeBaralhos quantidade da baralhos do jogo
      */
     public Baralho(ArrayList<Carta> baralho, int quantidadeBaralhos) {
-        this.baralho = baralho;
+        super(baralho);
         this.quantidadeBaralhos = quantidadeBaralhos;
     }
 
@@ -30,7 +31,7 @@ public class Baralho {
      * @return ArrayList<Carta>
      */
     public ArrayList<Carta> getBaralho(){
-        return this.baralho;
+        return this.cartas;
     }
 
     
