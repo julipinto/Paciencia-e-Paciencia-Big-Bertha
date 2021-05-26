@@ -1,94 +1,49 @@
 package controller;
 
-import java.util.ArrayList;
-
-import factory.BaralhoFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.HBox;
-import model.Baralho;
-import model.Carta;
-
+import util.UIComponentsBigBerta;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-
-public class PainelBigBerthaController {
+import javafx.scene.control.RadioButton;
+public class PainelBigBerthaController extends UIComponentsBigBerta{
 
     private ControllerBigBerta controller;
-    private ArrayList<ListView<String>> UIFileiras;
 
     @FXML
-    private HBox estoque;
+    void onFromSelected(ActionEvent event) {
+        RadioButton target = (RadioButton) event.getTarget();
+        String id = target.getId();
+        System.out.println(id);
 
-    @FXML
-    private ImageView aComprar;
+        if(id.equals("fromMonte")){
+            fromWhich.setDisable(true);
+        }else{
+            fromWhich.setDisable(false);
+        }
 
-    @FXML
-    private ImageView comprada;
-
-    @FXML   private ListView<String> fileira0;
-    @FXML   private ListView<String> fileira1;
-    @FXML   private ListView<String> fileira2;
-    @FXML   private ListView<String> fileira3;
-    @FXML   private ListView<String> fileira4;
-    @FXML   private ListView<String> fileira5;
-    @FXML   private ListView<String> fileira6;
-    @FXML   private ListView<String> fileira7;
-    @FXML   private ListView<String> fileira8;
-    @FXML   private ListView<String> fileira9;
-    @FXML   private ListView<String> fileira10;
-    @FXML   private ListView<String> fileira11;
-    @FXML   private ListView<String> fileira12;
-    @FXML   private ListView<String> fileira13;
-    @FXML   private ListView<String> fileira14;
-
-    @FXML
-    void onComprarCarta(ActionEvent event) {
-
+        for(RadioButton button: UIListFromRadioButtons){
+            if(id != button.getId()){
+                button.setSelected(false);
+            }
+        }
     }
 
     @FXML
     void initialize() {
         controller = new ControllerBigBerta();
         initializeFileiras();
-
-        // assert estoque != null : "fx:id=\"estoque\" was not injected: check your FXML file 'layout.fxml'.";
-        // assert aComprar != null : "fx:id=\"aComprar\" was not injected: check your FXML file 'layout.fxml'.";
-        // assert comprada != null : "fx:id=\"comprada\" was not injected: check your FXML file 'layout.fxml'.";
-        // assert listView != null : "fx:id=\"listView\" was not injected: check your FXML file 'layout.fxml'.";
-
-    }
-
-    private void initializeFileiras(){
-        UIFileiras = new ArrayList<ListView<String>>();
-        UIFileiras.add(fileira0);
-        UIFileiras.add(fileira1);
-        UIFileiras.add(fileira2);
-        UIFileiras.add(fileira3);
-        UIFileiras.add(fileira4);
-        UIFileiras.add(fileira5);
-        UIFileiras.add(fileira6);
-        UIFileiras.add(fileira7);
-        UIFileiras.add(fileira8);
-        UIFileiras.add(fileira9);
-        UIFileiras.add(fileira10);
-        UIFileiras.add(fileira11);
-        UIFileiras.add(fileira12);
-        UIFileiras.add(fileira13);
-        UIFileiras.add(fileira14);
         renderFileiras();
+        initializeFromButtons();
     }
+
+
 
     public void renderFileiras(){
         for (int i = 0; i <15; i++){
-            ListView<String> lv = UIFileiras.get(i);
+            ListView<String> lv = UIListFileiras.get(i);
             lv.getItems().setAll(controller.getStringFileiraByIndex(i));
         }
     }
-
-    
 
 }
 
@@ -100,3 +55,19 @@ public class PainelBigBerthaController {
 // fileira14.getItems().add(new ImageView(image4));
 // fileira14.getItems().add(new ImageView(image5));
 // fileira14.getItems().add(new ImageView(image6));
+
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+// 10
+// 11
+// 12
+// 13
+// 14

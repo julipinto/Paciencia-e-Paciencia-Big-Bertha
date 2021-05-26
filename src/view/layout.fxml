@@ -2,14 +2,13 @@
 
 <?import javafx.embed.swing.SwingNode?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1156.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PainelBigBerthaController">
@@ -33,29 +32,51 @@
             <ListView fx:id="fileira14" prefHeight="456.0" prefWidth="80.0" />
          </children>
       </HBox>
-      <RadioButton layoutX="24.0" layoutY="550.0" mnemonicParsing="false" text="Fileira " />
       <SwingNode layoutX="220.0" layoutY="549.0" />
-      <RadioButton layoutX="27.0" layoutY="504.0" mnemonicParsing="false" text="Monte" />
-      <Label layoutX="27.0" layoutY="440.0" text="Mover de:">
+      <RadioButton fx:id="fromMonte" layoutX="27.0" layoutY="452.0" mnemonicParsing="false" onAction="#onFromSelected" text="Monte" />
+      <Label layoutX="26.0" layoutY="416.0" text="Mover de:">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="121.0" layoutY="546.0" prefHeight="25.0" prefWidth="62.0" />
-      <TextField layoutX="152.0" layoutY="590.0" prefHeight="25.0" prefWidth="32.0" />
-      <Label layoutX="24.0" layoutY="594.0" prefHeight="17.0" prefWidth="118.0" text="A partir de qual carta" />
+      <TextField fx:id="fromWhich" layoutX="207.0" layoutY="588.0" prefHeight="25.0" prefWidth="32.0" />
+      <Label layoutX="31.0" layoutY="594.0" prefHeight="17.0" prefWidth="118.0" text="A partir de qual carta" />
       <Label layoutX="306.0" layoutY="440.0" text="Mover para:">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Separator layoutX="262.0" layoutY="436.0" orientation="VERTICAL" prefHeight="200.0" />
-      <Separator layoutX="12.0" layoutY="536.0" prefHeight="3.0" prefWidth="241.0" />
-      <RadioButton layoutX="306.0" layoutY="550.0" mnemonicParsing="false" text="Fileira" />
       <Button layoutX="1042.0" layoutY="590.0" mnemonicParsing="false" text="Jogar" />
-      <ChoiceBox layoutX="395.0" layoutY="546.0" prefHeight="25.0" prefWidth="62.0" />
-      <RadioButton layoutX="306.0" layoutY="504.0" mnemonicParsing="false" text="Fundaçao" />
-      <ChoiceBox layoutX="395.0" layoutY="500.0" prefHeight="25.0" prefWidth="62.0" />
-      <Separator layoutX="306.0" layoutY="536.0" prefHeight="3.0" prefWidth="174.0" />
+      <HBox layoutX="29.0" layoutY="496.0" prefHeight="88.0" prefWidth="213.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira0" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 0" />
+                  <RadioButton fx:id="fromFileira1" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 1" />
+                  <RadioButton fx:id="fromFileira2" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 2" />
+                  <RadioButton fx:id="fromFileira3" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 3" />
+                  <RadioButton fx:id="fromFileira4" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 4" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira5" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 5" />
+                  <RadioButton fx:id="fromFileira6" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 6" />
+                  <RadioButton fx:id="fromFileira7" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 7" />
+                  <RadioButton fx:id="fromFileira8" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 8" />
+                  <RadioButton fx:id="fromFileira9" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 9" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira10" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 10" />
+                  <RadioButton fx:id="fromFileira11" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 11" />
+                  <RadioButton fx:id="fromFileira12" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 12" />
+                  <RadioButton fx:id="fromFileira13" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 13" />
+                  <RadioButton fx:id="fromFileira14" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 14" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </Pane>
