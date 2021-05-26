@@ -3,6 +3,7 @@ package util;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 public class UIComponentsBigBerta {
   public ArrayList<ListView<String>> UIListFileiras;
   public ArrayList<RadioButton> UIListFromRadioButtons;
+  public ArrayList<RadioButton> UIListToRadioButtons;
 
   @FXML   public ListView<String> fileira0;
   @FXML   public ListView<String> fileira1;
@@ -44,8 +46,48 @@ public class UIComponentsBigBerta {
   @FXML   public RadioButton fromFileira13;
   @FXML   public RadioButton fromFileira14;
 
+  @FXML   public RadioButton toFileira0;
+  @FXML   public RadioButton toFileira1;
+  @FXML   public RadioButton toFileira2;
+  @FXML   public RadioButton toFileira3;
+  @FXML   public RadioButton toFileira4;
+  @FXML   public RadioButton toFileira5;
+  @FXML   public RadioButton toFileira6;
+  @FXML   public RadioButton toFileira7;
+  @FXML   public RadioButton toFileira8;
+  @FXML   public RadioButton toFileira9;
+  @FXML   public RadioButton toFileira10;
+  @FXML   public RadioButton toFileira11;
+  @FXML   public RadioButton toFileira12;
+  @FXML   public RadioButton toFileira13;
+  @FXML   public RadioButton toFileira14;
+
+  @FXML   private RadioButton toFundacao0;
+  @FXML   private RadioButton toFundacao1;
+  @FXML   private RadioButton toFundacao2;
+  @FXML   private RadioButton toFundacao3;
+  @FXML   private RadioButton toFundacao4;
+  @FXML   private RadioButton toFundacao5;
+  @FXML   private RadioButton toFundacao6;
+  @FXML   private RadioButton toFundacao7;
+  @FXML   private RadioButton toFundacaoK;
+
   @FXML   public TextField fromWhich;
 
+  @FXML   public Label qtdCartasRestantes;
+  @FXML   public Label proxCartaAComprar;
+  @FXML   public Label monte;
+
+  @FXML   public Label fundacao0;
+  @FXML   public Label fundacao1;
+  @FXML   public Label fundacao2;
+  @FXML   public Label fundacao3;
+  @FXML   public Label fundacao4;
+  @FXML   public Label fundacao5;
+  @FXML   public Label fundacao6;
+  @FXML   public Label fundacao7;
+  @FXML   public Label fundacaoK;
+  
   public void initializeFileiras(){
     UIListFileiras = new ArrayList<ListView<String>>();
     UIListFileiras.add(fileira0);
@@ -84,5 +126,35 @@ public class UIComponentsBigBerta {
     UIListFromRadioButtons.add(fromFileira14);
     UIListFromRadioButtons.add(fromMonte);
   }
+
+  public void initializeToButtons(){
+    UIListToRadioButtons = new ArrayList<RadioButton>();
+    UIListToRadioButtons.add(toFileira0);
+    UIListToRadioButtons.add(toFileira1);
+    UIListToRadioButtons.add(toFileira2);
+    UIListToRadioButtons.add(toFileira3);
+    UIListToRadioButtons.add(toFileira4);
+    UIListToRadioButtons.add(toFileira5);
+    UIListToRadioButtons.add(toFileira6);
+    UIListToRadioButtons.add(toFileira7);
+    UIListToRadioButtons.add(toFileira8);
+    UIListToRadioButtons.add(toFileira9);
+    UIListToRadioButtons.add(toFileira10);
+    UIListToRadioButtons.add(toFileira11);
+    UIListToRadioButtons.add(toFileira12);
+    UIListToRadioButtons.add(toFileira13);
+    UIListToRadioButtons.add(toFileira14);
+
+    UIListToRadioButtons.add(toFundacao0);
+    UIListToRadioButtons.add(toFundacao1);
+    UIListToRadioButtons.add(toFundacao2);
+    UIListToRadioButtons.add(toFundacao3);
+    UIListToRadioButtons.add(toFundacao4);
+    UIListToRadioButtons.add(toFundacao5);
+    UIListToRadioButtons.add(toFundacao6);
+    UIListToRadioButtons.add(toFundacao7);
+    UIListToRadioButtons.add(toFundacaoK);
+  }
+
   
 }

@@ -8,15 +8,18 @@ import javafx.scene.control.RadioButton;
 public class PainelBigBerthaController extends UIComponentsBigBerta{
 
     private ControllerBigBerta controller;
+    public String moveFromId;
+    public String moveToId;
 
     @FXML
     void onFromSelected(ActionEvent event) {
         RadioButton target = (RadioButton) event.getTarget();
         String id = target.getId();
-        System.out.println(id);
+        moveFromId = id;
 
         if(id.equals("fromMonte")){
             fromWhich.setDisable(true);
+            fromWhich.setText("");
         }else{
             fromWhich.setDisable(false);
         }
@@ -29,11 +32,54 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     }
 
     @FXML
+    void onToSelected(ActionEvent event) {
+        RadioButton target = (RadioButton) event.getTarget();
+        String id = target.getId();
+        moveToId = id;
+
+        for(RadioButton button: UIListToRadioButtons){
+            if(id != button.getId()){
+                button.setSelected(false);
+            }
+        }
+    }
+
+    
+    @FXML
+    void onJogar(ActionEvent event) {
+        System.out.println(moveFromId);
+        System.out.println(moveToId);
+        String strIndex = fromWhich.getText();
+
+        try {
+            int index = Integer.parseInt(strIndex);
+        } catch (NumberFormatException e) {}
+
+        clearSelections();
+    }
+
+    private void clearSelections(){
+        
+        moveFromId = "";
+        moveToId = "";
+        fromWhich.setText("");
+
+        for(RadioButton button: UIListFromRadioButtons){
+            button.setSelected(false);
+        }
+        for(RadioButton button: UIListToRadioButtons){
+            button.setSelected(false);
+        }
+    }
+
+
+    @FXML
     void initialize() {
         controller = new ControllerBigBerta();
         initializeFileiras();
         renderFileiras();
         initializeFromButtons();
+        initializeToButtons();
     }
 
 
