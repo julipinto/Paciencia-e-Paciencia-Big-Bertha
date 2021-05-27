@@ -55,7 +55,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Label layoutY="178.0" prefHeight="17.0" prefWidth="118.0" text="A partir de qual carta" />
+                  <Label layoutY="168.0" prefHeight="36.0" prefWidth="160.0" text="Quantas cartas deseja mover?" wrapText="true" />
                   <TextField fx:id="fromWhich" layoutX="181.0" layoutY="173.0" prefHeight="25.0" prefWidth="32.0" />
                </children>
             </AnchorPane>
@@ -184,7 +184,7 @@
       <Label fx:id="qtdCartasRestantes" layoutX="52.0" layoutY="394.0" text="(4)" />
       <Label fx:id="proxCartaAComprar" layoutX="17.0" layoutY="417.0" text="Label" />
       <Label fx:id="monte" layoutX="95.0" layoutY="417.0" text="Label" />
-      <HBox layoutX="17.0" layoutY="516.0" prefHeight="25.0" prefWidth="375.0" style="-fx-spacing: 15;">
+      <HBox layoutX="17.0" layoutY="516.0" prefHeight="25.0" prefWidth="483.0" style="-fx-spacing: 10;">
          <children>
             <Label fx:id="fundacao0" text="Label" />
             <Label fx:id="fundacao1" text="Label" />

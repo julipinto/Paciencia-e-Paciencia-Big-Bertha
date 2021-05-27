@@ -55,10 +55,39 @@ public abstract class Pilha {
         } return null;
     }
 
+    public Carta getFirstCarta(){
+        if(!this.pilha.isEmpty()){
+            return this.pilha.get(0);
+        } return null;
+    }
+
     public int getLastIndex(){
         if(!this.pilha.isEmpty()){
             return pilha.size() -1;
         } return -99;
+    }
+
+    public int size(){
+        return this.pilha.size();
+    }
+
+    public Carta get(int index){
+        return this.pilha.get(index);
+    }
+
+    public ArrayList<Carta> subLista(int fromIndex, int toIndex) {
+        ArrayList<Carta> subLista = new ArrayList<Carta>(this.pilha.subList(fromIndex, toIndex + 1));
+        return subLista;
+    }
+
+    public ArrayList<Carta> fatiarAPartirDe(int fromIndex){
+        ArrayList<Carta> fatia = new ArrayList<Carta>(this.pilha.subList(fromIndex, size()));
+        this.pilha.subList(fromIndex, size()).clear();
+        return fatia;
+    }
+
+    public void addVariasCartas(List<Carta> cartas){
+        this.pilha.addAll(cartas);
     }
 
 

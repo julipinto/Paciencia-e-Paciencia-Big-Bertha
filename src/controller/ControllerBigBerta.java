@@ -100,7 +100,7 @@ public class ControllerBigBerta {
     return "";
   }
 
-  public void Jogar(String from, String to, int index){
+  public boolean Jogar(String from, String to, int qtd){
     from = resolveID(from);
     to = resolveID(to);
 
@@ -109,29 +109,15 @@ public class ControllerBigBerta {
 
     if(to.equals("fundacaoK")){
       verificarEmoverToFundacaoK(fromPilha, toPilha);
-      return;
+      return false;
     }
-    if(index == -99 || fromPilha.getLastIndex() == index ){
+    if(qtd < 1 ){
       verificarEMoverUmaCarta(fromPilha, toPilha);
-      return;
+      return false;
     }
+    verificarEMoverVariasCartas(fromPilha, toPilha, qtd);
 
-    // if(to.contains("fundacao")){
-    //   if(toPilha.isEmpty()){
-
-    //   }
-    // }
-
-    // else if(from.equals("monte") && !estoque.getPilha().isEmpty()){
-    //   List<Carta> e = estoque.getPilha();
-    //   Carta c = e.get(e.size()-1);
-    //   Carta ultimaCartaTo = toPilha.getPilha().get(toPilha.getPilha().size() -1);
-      
-    //   if(CompararCartas.compararPeso(c, ultimaCartaTo) == 1 && CompararCartas.isCoresInvertidas(c, ultimaCartaTo)){
-    //     toPilha.addCarta(c);
-    //     fromPilha.removerCarta();
-    //   }
-    // }
+    return verificaVitoria();
   }
 
   private void verificarEmoverToFundacaoK(Pilha fromPilha, Pilha toPilha){
@@ -140,15 +126,24 @@ public class ControllerBigBerta {
     }
   }
 
+  private boolean verificaVitoria(){
+    int i = 0;
+    for (PilhaFundacao f : fundacoes){
+      i+= f.size();
+    }
+    i+= fundacaoK.size();
+    return i == baralho.size();
+  }
+
   
   //Se tiver nenhuma carta na fileira pode mover
   //se tiver nenhuma carta na fundação só pode mover o A
   //Se tiver carta na fileira tem que ser distância 1 e cor alternada
   //Se tiver carta na fundação tem que ser de mesmo naipe e distância 1
+  //Se a carta for K só pode mover para a f
   private void verificarEMoverUmaCarta(Pilha fromPilha, Pilha toPilha){
     if(!fromPilha.isEmpty()){
       Carta cartaAMover = fromPilha.getLastCarta();
-
       if(toPilha.isEmpty()){
         if((toPilha instanceof PilhaFileira) || 
           (toPilha instanceof PilhaFundacao && cartaAMover.getValor().equals("A"))){
@@ -156,27 +151,59 @@ public class ControllerBigBerta {
         }
       }else{
         Carta cartaAComparar = toPilha.getLastCarta();
-        if((toPilha instanceof PilhaFileira) && 
-            CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)){
+        if(
+            toPilha instanceof PilhaFileira && 
+            CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)
+          ){
             moveOne(fromPilha, toPilha);
-        }else if(toPilha instanceof PilhaFundacao &&
-            CompararCartas.compararPesoEMesmoNaipe(cartaAComparar, cartaAMover)){
-              moveOne(fromPilha, toPilha);
+        }else if(
+            toPilha instanceof PilhaFundacao &&
+            CompararCartas.compararPesoEMesmoNaipe(cartaAComparar, cartaAMover) && 
+            !cartaAMover.getValor().equals("K")
+          ){
+            moveOne(fromPilha, toPilha);
         }
       }
     }
   }
 
-  private String instanceOfPilha(Pilha pilha){
-    if(pilha instanceof PilhaFileira){
-      return "fileira";
-    }if(pilha instanceof PilhaFundacao){
-      return "fundacao";
-    }if(pilha instanceof PilhaEstoque){
-      return "monte";
+  //Se a quantidade for maior que o tamanho de origem não pode mover
+  //se a sublista não for de cor alternada e distancia não pode mover
+  //Se a ultima carta do destino não for alternada e distancia não pode mover
+  // se destino vazio e cor alternada e distancia pode mover
+  private void verificarEMoverVariasCartas(Pilha fromPilha, Pilha toPilha, int qtd){
+    if((!fromPilha.isEmpty()) && fromPilha.size() >= qtd && toPilha instanceof PilhaFileira){
+
+      int index = fromPilha.size() - qtd;
+      if(!verificaCartasAlternadas(fromPilha, index)){
+        return;
+      }
+
+      if(toPilha.isEmpty()){
+        moveVarios(fromPilha, toPilha, index);
+        return;
+      }
+
+      if(CompararCartas.compararPesoECorInvertida(fromPilha.get(index), toPilha.getLastCarta())){
+        moveVarios(fromPilha, toPilha, index);
+        return;
+      }
+
     }
-    return "";
   }
+
+  private boolean verificaCartasAlternadas(Pilha pilha, int index){
+    for(int i = pilha.getLastIndex(); i < index; i--){
+      Carta carta1 = pilha.get(i);
+      Carta carta2 = pilha.get(i--);
+      if(!CompararCartas.compararPesoECorInvertida(carta1, carta2)){
+        return false;
+      }
+    }
+    return true;
+  }
+
+
 
   private void moveOne(Pilha fromPilha, Pilha toPilha){
     Carta carta = fromPilha.removerCarta();
@@ -184,7 +211,8 @@ public class ControllerBigBerta {
   }
 
   private void moveVarios(Pilha fromPilha, Pilha toPilha, int index){
-
+    List<Carta> cartas = fromPilha.fatiarAPartirDe(index);
+    toPilha.addVariasCartas(cartas);
   }
 
   //Get itens to assembly the UI
@@ -198,22 +226,30 @@ public class ControllerBigBerta {
   }
 
   public String getCartaMonte(){
-    List<Carta> cartas = estoque.getPilha();
-    return cartas.get(cartas.size() - 1).toPureString();
+    try{
+      Carta carta = estoque.get(estoque.size() - 1);
+      return carta.toPureString();
+    }catch(Exception e){
+      return "[    ]";
+    }
   }
 
   public String getProxCartaMonte(){
-    List<Carta> cartas = estoque.getPilha();
-    return cartas.get(cartas.size() - 2).toPureString();
+    try{
+      Carta carta = estoque.get(estoque.size() - 2);
+      return carta.toPureString();
+    }catch(Exception e){
+      return "[    ]";
+    }
   }
 
   public int getQtdRestanteMonte(){
-    List<Carta> cartas = estoque.getPilha();
-    return cartas.size();
+    return estoque.size();
   }
 
   public ArrayList<String> getUltimasFundacoes(){
     ArrayList<String> cartas = new ArrayList<String>();
+
     for(PilhaFundacao f : fundacoes){
       if(f.isEmpty()){
         cartas.add("[    ]");

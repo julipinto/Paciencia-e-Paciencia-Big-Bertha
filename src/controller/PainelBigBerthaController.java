@@ -49,7 +49,7 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     
     @FXML
     void onJogar(ActionEvent event) {
-        if(!(moveFromId.equals("") && moveToId.equals(""))){
+        if(!(moveFromId.equals("") || moveToId.equals(""))){
             String strIndex = fromWhich.getText();
             int index;
     
@@ -59,10 +59,13 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
                 index = -99;
             }
             
-            controller.Jogar(moveFromId, moveToId, index);
+            boolean venceu = controller.Jogar(moveFromId, moveToId, index);
+            if(venceu) System.out.println("Você venceu o jogo");
         }
         clearSelections();
         renderTela();
+        moveFromId = "";
+        moveToId = "";
     }
 
     private void clearSelections(){
