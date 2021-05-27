@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import util.UIComponentsBigBerta;
@@ -47,19 +49,23 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     
     @FXML
     void onJogar(ActionEvent event) {
-        System.out.println(moveFromId);
-        System.out.println(moveToId);
-        String strIndex = fromWhich.getText();
-
-        try {
-            int index = Integer.parseInt(strIndex);
-        } catch (NumberFormatException e) {}
-
+        if(!(moveFromId.equals("") && moveToId.equals(""))){
+            String strIndex = fromWhich.getText();
+            int index;
+    
+            try {
+                index = Integer.parseInt(strIndex);
+            } catch (NumberFormatException e) {
+                index = -99;
+            }
+            
+            controller.Jogar(moveFromId, moveToId, index);
+        }
         clearSelections();
+        renderTela();
     }
 
     private void clearSelections(){
-        
         moveFromId = "";
         moveToId = "";
         fromWhich.setText("");
@@ -76,12 +82,15 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     @FXML
     void initialize() {
         controller = new ControllerBigBerta();
-        initializeFileiras();
-        renderFileiras();
-        initializeFromButtons();
-        initializeToButtons();
+        initializeAllUIComponents();
+        renderTela();
     }
 
+    public void renderTela(){
+        renderFileiras();
+        renderMontes();
+        renderFundacoes();
+    }
 
 
     public void renderFileiras(){
@@ -89,6 +98,21 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
             ListView<String> lv = UIListFileiras.get(i);
             lv.getItems().setAll(controller.getStringFileiraByIndex(i));
         }
+    }
+
+    public void renderMontes(){
+        qtdCartasRestantes.setText("(" + controller.getQtdRestanteMonte() + ")");
+        monte.setText(controller.getCartaMonte());
+        proxCartaAComprar.setText(controller.getProxCartaMonte());
+    }
+
+    public void renderFundacoes(){
+        ArrayList<String> faces = controller.getUltimasFundacoes();
+        for (int i = 0; i < 9; i++) {
+            UIFundacoesLabel.get(i).setText(faces.get(i));
+        }
+        // UIFundacoesLabel.get(8).setText(faces.get(8));
+        fundacaoK.setText(faces.get(8));
     }
 
 }

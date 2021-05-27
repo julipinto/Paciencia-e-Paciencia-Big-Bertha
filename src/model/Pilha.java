@@ -15,7 +15,6 @@ public abstract class Pilha {
     public Pilha() {
         this.pilha = new ArrayList<Carta>();
     }
-
     
     /** 
      * Método que retorna a List de cartas.
@@ -45,6 +44,17 @@ public abstract class Pilha {
             return this.pilha.remove(pilha.size()-1);
         } return null;
     }
+
+    public boolean isEmpty(){
+        return this.pilha.isEmpty();
+    }
+
+    public Carta getLastCarta(){
+        if(!this.pilha.isEmpty()){
+            return this.pilha.get(pilha.size() -1);
+        } return null;
+    }
+
 
     /** 
      * Método que retorna o toString da pilha.

@@ -181,10 +181,9 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="qtdCartasRestantes" layoutX="17.0" layoutY="394.0" text="(4)" />
+      <Label fx:id="qtdCartasRestantes" layoutX="52.0" layoutY="394.0" text="(4)" />
       <Label fx:id="proxCartaAComprar" layoutX="17.0" layoutY="417.0" text="Label" />
       <Label fx:id="monte" layoutX="95.0" layoutY="417.0" text="Label" />
-      <Label layoutX="17.0" layoutY="555.0" text="Label" />
       <HBox layoutX="17.0" layoutY="516.0" prefHeight="25.0" prefWidth="375.0" style="-fx-spacing: 15;">
          <children>
             <Label fx:id="fundacao0" text="Label" />
@@ -195,8 +194,8 @@
             <Label fx:id="fundacao5" text="Label" />
             <Label fx:id="fundacao6" text="Label" />
             <Label fx:id="fundacao7" text="Label" />
-            <Label fx:id="fundacaoK" text="Label" />
          </children>
       </HBox>
+      <Label fx:id="fundacaoK" layoutX="17.0" layoutY="576.0" text="Label" />
    </children>
 </Pane>

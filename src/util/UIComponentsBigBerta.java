@@ -12,6 +12,7 @@ public class UIComponentsBigBerta {
   public ArrayList<ListView<String>> UIListFileiras;
   public ArrayList<RadioButton> UIListFromRadioButtons;
   public ArrayList<RadioButton> UIListToRadioButtons;
+  public ArrayList<Label> UIFundacoesLabel;
 
   @FXML   public ListView<String> fileira0;
   @FXML   public ListView<String> fileira1;
@@ -62,15 +63,15 @@ public class UIComponentsBigBerta {
   @FXML   public RadioButton toFileira13;
   @FXML   public RadioButton toFileira14;
 
-  @FXML   private RadioButton toFundacao0;
-  @FXML   private RadioButton toFundacao1;
-  @FXML   private RadioButton toFundacao2;
-  @FXML   private RadioButton toFundacao3;
-  @FXML   private RadioButton toFundacao4;
-  @FXML   private RadioButton toFundacao5;
-  @FXML   private RadioButton toFundacao6;
-  @FXML   private RadioButton toFundacao7;
-  @FXML   private RadioButton toFundacaoK;
+  @FXML   public RadioButton toFundacao0;
+  @FXML   public RadioButton toFundacao1;
+  @FXML   public RadioButton toFundacao2;
+  @FXML   public RadioButton toFundacao3;
+  @FXML   public RadioButton toFundacao4;
+  @FXML   public RadioButton toFundacao5;
+  @FXML   public RadioButton toFundacao6;
+  @FXML   public RadioButton toFundacao7;
+  @FXML   public RadioButton toFundacaoK;
 
   @FXML   public TextField fromWhich;
 
@@ -88,6 +89,13 @@ public class UIComponentsBigBerta {
   @FXML   public Label fundacao7;
   @FXML   public Label fundacaoK;
   
+  public void initializeAllUIComponents(){
+    initializeFileiras();
+    initializeFromButtons();
+    initializeToButtons();
+    initializeLabelFundacoes();
+  }
+
   public void initializeFileiras(){
     UIListFileiras = new ArrayList<ListView<String>>();
     UIListFileiras.add(fileira0);
@@ -154,6 +162,19 @@ public class UIComponentsBigBerta {
     UIListToRadioButtons.add(toFundacao6);
     UIListToRadioButtons.add(toFundacao7);
     UIListToRadioButtons.add(toFundacaoK);
+  }
+
+  public void initializeLabelFundacoes(){
+    UIFundacoesLabel = new ArrayList<Label>();
+    UIFundacoesLabel.add(fundacao0);
+    UIFundacoesLabel.add(fundacao1);
+    UIFundacoesLabel.add(fundacao2);
+    UIFundacoesLabel.add(fundacao3);
+    UIFundacoesLabel.add(fundacao4);
+    UIFundacoesLabel.add(fundacao5);
+    UIFundacoesLabel.add(fundacao6);
+    UIFundacoesLabel.add(fundacao7);
+    UIFundacoesLabel.add(fundacaoK);
   }
 
   

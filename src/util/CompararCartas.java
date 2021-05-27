@@ -38,12 +38,24 @@ public class CompararCartas {
      *  -1 se a diferença diretamente crescente(formação de fundação) ou 0 se os pesos
      * forem iguais ou diferente dos anteriores(não podem se relacionar).
      */
-    private static int compararPeso(Carta carta1, Carta carta2){
+    public static int compararPeso(Carta carta1, Carta carta2){
         if(carta2.getPeso()-carta1.getPeso()== 1){
             return 1;
         } else if(carta2.getPeso()-carta1.getPeso()== -1){
             return -1;
         } return 0;
+    }
+
+    public static boolean isCoresInvertidas(Carta carta1, Carta carta2){
+        return !carta1.getCor().equals(carta2.getCor());
+    }
+
+    public static boolean compararPesoECorInvertida(Carta carta1, Carta carta2){
+        return CompararCartas.compararPeso(carta1, carta2) == 1 && CompararCartas.isCoresInvertidas(carta1, carta2);
+    }
+
+    public static boolean compararPesoEMesmoNaipe(Carta carta1, Carta carta2){
+        return CompararCartas.compararPeso(carta1, carta2) == 1 && carta1.getNaipe().equals(carta2.getNaipe());
     }
 
      /**
