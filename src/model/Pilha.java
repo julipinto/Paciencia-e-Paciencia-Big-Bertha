@@ -55,6 +55,12 @@ public abstract class Pilha {
         } return null;
     }
 
+    public int getLastIndex(){
+        if(!this.pilha.isEmpty()){
+            return pilha.size() -1;
+        } return -99;
+    }
+
 
     /** 
      * Método que retorna o toString da pilha.

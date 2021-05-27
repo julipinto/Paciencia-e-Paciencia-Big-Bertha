@@ -100,7 +100,7 @@ public class ControllerBigBerta {
     return "";
   }
 
-  public void Jogar(String from, String to, int qtd){
+  public void Jogar(String from, String to, int index){
     from = resolveID(from);
     to = resolveID(to);
 
@@ -108,7 +108,11 @@ public class ControllerBigBerta {
     Pilha toPilha = map.get(to);
 
     if(to.equals("fundacaoK")){
-      moveToFundacaoK(fromPilha, toPilha);
+      verificarEmoverToFundacaoK(fromPilha, toPilha);
+      return;
+    }
+    if(index == -99 || fromPilha.getLastIndex() == index ){
+      verificarEMoverUmaCarta(fromPilha, toPilha);
       return;
     }
 
@@ -118,45 +122,49 @@ public class ControllerBigBerta {
     //   }
     // }
 
-    else if(from.equals("monte") && !estoque.getPilha().isEmpty()){
-      List<Carta> e = estoque.getPilha();
-      Carta c = e.get(e.size()-1);
-      Carta ultimaCartaTo = toPilha.getPilha().get(toPilha.getPilha().size() -1);
+    // else if(from.equals("monte") && !estoque.getPilha().isEmpty()){
+    //   List<Carta> e = estoque.getPilha();
+    //   Carta c = e.get(e.size()-1);
+    //   Carta ultimaCartaTo = toPilha.getPilha().get(toPilha.getPilha().size() -1);
       
-      if(CompararCartas.compararPeso(c, ultimaCartaTo) == 1 && CompararCartas.isCoresInvertidas(c, ultimaCartaTo)){
-        toPilha.addCarta(c);
-        fromPilha.removerCarta();
-      }
-    }
+    //   if(CompararCartas.compararPeso(c, ultimaCartaTo) == 1 && CompararCartas.isCoresInvertidas(c, ultimaCartaTo)){
+    //     toPilha.addCarta(c);
+    //     fromPilha.removerCarta();
+    //   }
+    // }
   }
 
-  private void moveToFundacaoK(Pilha fromPilha, Pilha toPilha){
+  private void verificarEmoverToFundacaoK(Pilha fromPilha, Pilha toPilha){
     if(fromPilha.getLastCarta().getValor().equals("K")){
       moveOne(fromPilha, toPilha);
     }
   }
 
-  private void moveFromMonte(Pilha fromPilha, Pilha toPilha){
-    if(!estoque.isEmpty()){
+  
+  //Se tiver nenhuma carta na fileira pode mover
+  //se tiver nenhuma carta na fundação só pode mover o A
+  //Se tiver carta na fileira tem que ser distância 1 e cor alternada
+  //Se tiver carta na fundação tem que ser de mesmo naipe e distância 1
+  private void verificarEMoverUmaCarta(Pilha fromPilha, Pilha toPilha){
+    if(!fromPilha.isEmpty()){
       Carta cartaAMover = fromPilha.getLastCarta();
 
-      if(!toPilha.isEmpty()){
-        Carta cartaAComparar = toPilha.getLastCarta();
-        if(CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)){
+      if(toPilha.isEmpty()){
+        if((toPilha instanceof PilhaFileira) || 
+          (toPilha instanceof PilhaFundacao && cartaAMover.getValor().equals("A"))){
           moveOne(fromPilha, toPilha);
         }
+      }else{
+        Carta cartaAComparar = toPilha.getLastCarta();
+        if((toPilha instanceof PilhaFileira) && 
+            CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)){
+            moveOne(fromPilha, toPilha);
+        }else if(toPilha instanceof PilhaFundacao &&
+            CompararCartas.compararPesoEMesmoNaipe(cartaAComparar, cartaAMover)){
+              moveOne(fromPilha, toPilha);
+        }
       }
-
-      //Se tiver nenhuma carta na fileira pode mover
-      //se tiver nenhuma carta na fundação só pode mover o A
-      //Se tiver carta na fileira tem que ser distância 1 e cor alternada
-      //Se tiver carta na fundação tem que ser de mesmo naipe e distância 1
-
-      
-      //else if(instanceOfPilha(toPilha).equals(""))
-
     }
-
   }
 
   private String instanceOfPilha(Pilha pilha){
