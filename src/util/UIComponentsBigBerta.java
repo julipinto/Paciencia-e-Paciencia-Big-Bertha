@@ -90,6 +90,9 @@ public class UIComponentsBigBerta {
   @FXML   public ImageView fundacao6;
   @FXML   public ImageView fundacao7;
   @FXML   public ImageView fundacaoK;
+
+  
+  @FXML   public ImageView warnings;
   
   public void initializeAllUIComponents(){
     initializeFileiras();
@@ -178,6 +181,4 @@ public class UIComponentsBigBerta {
     UIFundacoesLabel.add(fundacao7);
     UIFundacoesLabel.add(fundacaoK);
   }
-
-  
 }

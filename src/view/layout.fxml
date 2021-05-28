@@ -220,5 +220,6 @@
             <ImageView fx:id="monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
+      <ImageView fx:id="warnings" fitHeight="52.0" fitWidth="200.0" layoutX="299.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

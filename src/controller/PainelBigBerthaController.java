@@ -14,6 +14,7 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     private ControllerBigBerta controller;
     public String moveFromId;
     public String moveToId;
+    public boolean venceu = false;
 
     @FXML
     void onFromSelected(ActionEvent event) {
@@ -51,6 +52,11 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     
     @FXML
     void onJogar(ActionEvent event) {
+        setWarningWin();
+        if(venceu){
+            return;
+        }
+
         if(!(moveFromId.equals("") || moveToId.equals(""))){
             String strIndex = fromWhich.getText();
             int index;
@@ -61,8 +67,10 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
                 index = -99;
             }
             
-            boolean venceu = controller.Jogar(moveFromId, moveToId, index);
-            if(venceu) System.out.println("Você venceu o jogo");
+            boolean status = controller.Jogar(moveFromId, moveToId, index);
+            warnings.setVisible(!status);
+
+            if(controller.verificaVitoria()) setWarningWin();
         }
         clearSelections();
         renderTela();
@@ -83,12 +91,20 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
         }
     }
 
+    public void setWarningWin(){
+        warnings.setImage(new Image("assets/PARABENIZACAO.png"));
+        warnings.setVisible(true);
+        venceu = true;
+    }
+
 
     @FXML
     void initialize() {
         controller = new ControllerBigBerta();
         initializeAllUIComponents();
         renderTela();
+        warnings.setImage(new Image("assets/MOVIMENTO_INVALIDO.png"));
+        warnings.setVisible(false);
     }
 
     public void renderTela(){
@@ -129,28 +145,3 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     }
 
 }
-
-// Image image3 = new Image("assets/Group 3.png");
-// Image image4 = new Image("assets/Group 4.png");
-// Image image5 = new Image("assets/Group 5.png");
-// Image image6 = new Image("assets/Group 6.png");
-// fileira14.getItems().add(new ImageView(image3));
-// fileira14.getItems().add(new ImageView(image4));
-// fileira14.getItems().add(new ImageView(image5));
-// fileira14.getItems().add(new ImageView(image6));
-
-// 0
-// 1
-// 2
-// 3
-// 4
-// 5
-// 6
-// 7
-// 8
-// 9
-// 10
-// 11
-// 12
-// 13
-// 14
