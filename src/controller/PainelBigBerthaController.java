@@ -52,7 +52,6 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
     
     @FXML
     void onJogar(ActionEvent event) {
-        setWarningWin();
         if(venceu){
             return;
         }

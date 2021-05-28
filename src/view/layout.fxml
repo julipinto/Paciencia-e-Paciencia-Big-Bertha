@@ -4,10 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -15,120 +13,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1156.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PainelBigBerthaController">
    <children>
-      <HBox alignment="BOTTOM_LEFT" layoutX="549.0" layoutY="378.0" prefHeight="215.0" prefWidth="586.0">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Label text="Mover de:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="fromMonte" layoutY="49.0" mnemonicParsing="false" onAction="#onFromSelected" text="Monte" />
-                  <HBox layoutY="73.0" prefHeight="88.0" prefWidth="213.0">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="fromFileira0" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 0" />
-                              <RadioButton fx:id="fromFileira1" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 1" />
-                              <RadioButton fx:id="fromFileira2" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 2" />
-                              <RadioButton fx:id="fromFileira3" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 3" />
-                              <RadioButton fx:id="fromFileira4" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 4" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="fromFileira5" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 5" />
-                              <RadioButton fx:id="fromFileira6" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 6" />
-                              <RadioButton fx:id="fromFileira7" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 7" />
-                              <RadioButton fx:id="fromFileira8" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 8" />
-                              <RadioButton fx:id="fromFileira9" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 9" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="fromFileira10" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 10" />
-                              <RadioButton fx:id="fromFileira11" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 11" />
-                              <RadioButton fx:id="fromFileira12" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 12" />
-                              <RadioButton fx:id="fromFileira13" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 13" />
-                              <RadioButton fx:id="fromFileira14" mnemonicParsing="false" onAction="#onFromSelected" text="Fileira 14" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <Label layoutY="168.0" prefHeight="36.0" prefWidth="160.0" text="Quantas cartas deseja mover?" wrapText="true" />
-                  <TextField fx:id="fromWhich" layoutX="181.0" layoutY="173.0" prefHeight="25.0" prefWidth="32.0" />
-               </children>
-            </AnchorPane>
-            <Separator orientation="VERTICAL" prefHeight="215.0" prefWidth="42.0" />
-            <AnchorPane prefHeight="200.0" prefWidth="275.0">
-               <children>
-                  <Label layoutX="12.0" layoutY="-4.0" text="Mover para:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <HBox layoutX="13.0" layoutY="38.0" prefHeight="47.0" prefWidth="262.0">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFundacao0" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 0" />
-                              <RadioButton fx:id="toFundacao1" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 1" />
-                              <RadioButton fx:id="toFundacao2" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 2" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFundacao3" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 3" />
-                              <RadioButton fx:id="toFundacao4" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 4" />
-                              <RadioButton fx:id="toFundacao5" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 5" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFundacao6" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 6" />
-                              <RadioButton fx:id="toFundacao7" mnemonicParsing="false" onAction="#onToSelected" text="Fundação 7" />
-                              <RadioButton fx:id="toFundacaoK" mnemonicParsing="false" onAction="#onToSelected" text="Fundação K" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="14.0" layoutY="108.0" prefHeight="88.0" prefWidth="213.0">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFileira0" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 0" />
-                              <RadioButton fx:id="toFileira1" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 1" />
-                              <RadioButton fx:id="toFileira2" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 2" />
-                              <RadioButton fx:id="toFileira3" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 3" />
-                              <RadioButton fx:id="toFileira4" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 4" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFileira5" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 5" />
-                              <RadioButton fx:id="toFileira6" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 6" />
-                              <RadioButton fx:id="toFileira7" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 7" />
-                              <RadioButton fx:id="toFileira8" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 8" />
-                              <RadioButton fx:id="toFileira9" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 9" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <RadioButton fx:id="toFileira10" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 10" />
-                              <RadioButton fx:id="toFileira11" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 11" />
-                              <RadioButton fx:id="toFileira12" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 12" />
-                              <RadioButton fx:id="toFileira13" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 13" />
-                              <RadioButton fx:id="toFileira14" mnemonicParsing="false" onAction="#onToSelected" text="Fileira 14" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </AnchorPane>
-            <Button mnemonicParsing="false" onAction="#onJogar" text="Jogar" />
-         </children>
-      </HBox>
       <VBox layoutX="-3.0" prefHeight="352.0" prefWidth="1156.0">
          <children>
             <HBox alignment="CENTER" prefHeight="20.0" prefWidth="1129.0" style="-fx-spacing: 31;">
@@ -171,55 +55,188 @@
             </HBox>
          </children>
       </VBox>
-      <Separator layoutX="507.0" layoutY="351.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="32.0" />
-      <Label layoutX="16.0" layoutY="358.0" text="Monte">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="16.0" layoutY="445.0" text="Fundações">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="qtdCartasRestantes" layoutX="93.0" layoutY="369.0" text="(4)" />
-      <Label layoutX="14.0" layoutY="545.0" text="Fundação K" />
-      <VBox layoutX="13.0" layoutY="481.0" prefHeight="51.0" prefWidth="421.0">
+      <ImageView fx:id="warnings" fitHeight="52.0" fitWidth="200.0" layoutX="876.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="15.0" layoutY="352.0" prefHeight="39.0" prefWidth="1140.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="17.0" prefWidth="488.0" style="-fx-spacing: 16;">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Fund 0" />
-                  <Label text="Fund 1" />
-                  <Label text="Fund 2" />
-                  <Label text="Fund 3" />
-                  <Label text="Fund 4" />
-                  <Label text="Fund 5" />
-                  <Label text="Fund 6" />
-                  <Label text="fund 7" />
+                  <RadioButton fx:id="fromFileira0" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira0" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
                </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="261.0" style="-fx-spacing: 5;">
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="fundacao0" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao1" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao2" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao3" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao4" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao5" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao6" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fundacao7" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <RadioButton fx:id="fromFileira1" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira1" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
                </children>
-            </HBox>
-         </children>
-      </VBox>
-      <ImageView fx:id="fundacaoK" fitHeight="25.0" fitWidth="48.0" layoutX="14.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true" />
-      <HBox layoutX="15.0" layoutY="403.0" prefHeight="25.0" prefWidth="200.0" style="-fx-spacing: 5;">
-         <children>
-            <ImageView fx:id="carta3Monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="proxCartaAComprar" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira2" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira2" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira3" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira3" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira4" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira4" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira5" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira5" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira6" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira6" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira7" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira7" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira8" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira8" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira9" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira9" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira10" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira10" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira11" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira11" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira12" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira12" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira13" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira13" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="fromFileira14" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                  <RadioButton fx:id="toFileira14" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
          </children>
       </HBox>
-      <ImageView fx:id="warnings" fitHeight="52.0" fitWidth="200.0" layoutX="299.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox alignment="CENTER" layoutX="778.0" layoutY="532.0" prefHeight="26.0" prefWidth="335.0" style="-fx-spacing: 10;">
+         <children>
+            <Label prefHeight="26.0" prefWidth="281.0" text="Quer mover mais de uma carta? Digite a quantidade" wrapText="true" />
+            <TextField fx:id="fromWhich" prefHeight="25.0" prefWidth="32.0" />
+         </children>
+      </HBox>
+      <Button layoutX="1068.0" layoutY="567.0" mnemonicParsing="false" onAction="#onJogar" text="Jogar" />
+      <HBox layoutX="14.0" layoutY="413.0" prefHeight="169.0" prefWidth="710.0">
+         <children>
+            <VBox prefHeight="76.0" prefWidth="221.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="107.0" style="-fx-spacing: 5;">
+                     <children>
+                        <Label text="Monte">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="qtdCartasRestantes" text="(4)" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0" style="-fx-spacing: 5;">
+                     <children>
+                        <ImageView fx:id="carta3Monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="proxCartaAComprar" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                        <RadioButton fx:id="fromMonte" mnemonicParsing="false" onAction="#onFromSelected" text="De" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="156.0" prefWidth="48.0" />
+            <VBox prefHeight="156.0" prefWidth="408.0">
+               <children>
+                  <Label text="Fundações">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="51.0" prefWidth="421.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="17.0" prefWidth="488.0" style="-fx-spacing: 16;">
+                           <children>
+                              <Label text="Fund 0" />
+                              <Label text="Fund 1" />
+                              <Label text="Fund 2" />
+                              <Label text="Fund 3" />
+                              <Label text="Fund 4" />
+                              <Label text="Fund 5" />
+                              <Label text="Fund 6" />
+                              <Label text="fund 7" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="261.0" style="-fx-spacing: 5;">
+                           <children>
+                              <ImageView fx:id="fundacao0" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao1" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao2" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao3" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao4" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao5" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao6" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="fundacao7" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="17.0" prefWidth="430.0" style="-fx-spacing: 8;">
+                     <children>
+                        <RadioButton fx:id="toFundacao0" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao1" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao2" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao3" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao4" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao5" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao6" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                        <RadioButton fx:id="toFundacao7" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="27.0" prefWidth="421.0" />
+                  <HBox prefHeight="100.0" prefWidth="421.0" />
+                  <Label text="Fundação K" />
+                  <ImageView fx:id="fundacaoK" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <RadioButton fx:id="toFundacaoK" mnemonicParsing="false" onAction="#onToSelected" text="Para" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </Pane>
