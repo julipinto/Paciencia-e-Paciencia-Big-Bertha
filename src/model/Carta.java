@@ -11,7 +11,7 @@ public class Carta {
     private static final String ANSI_RED = "\u001B[31m";// transformar a cor da letra em vermelho
     private static final String ANSI_WHITE = "\u001B[37m";// transformar a cor da letra em branca
     private String cartaOculta = "[▒▒▒▒]";//modo de exibição quando a carta está virada
-    private String naipe, valor, cor;
+    private String naipe, valor, cor, nomeNaipe;
     private int peso;
     private boolean visivel;
 
@@ -23,11 +23,12 @@ public class Carta {
      * @param cor   cor da carta
      * 
      */
-    public Carta(String naipe, String valor, int peso) {
+    public Carta(String naipe, String valor, int peso, String nomeNaipe) {
         this.naipe = naipe;
         this.valor = valor;
         this.peso = peso;
         this.visivel = false;
+        this.nomeNaipe = nomeNaipe;
         setCor();
     }
 
@@ -99,6 +100,10 @@ public class Carta {
 
     public String toPureString(){
         return " [" + naipe +"  "+ valor +"  "+ naipe + "] ";
+    }
+
+    public String toImageName(){
+        return valor + "_" + nomeNaipe;
     }
     
     /** 

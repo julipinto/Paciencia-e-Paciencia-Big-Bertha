@@ -7,28 +7,29 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class UIComponentsBigBerta {
-  public ArrayList<ListView<String>> UIListFileiras;
+  public ArrayList<ListView<ImageView>> UIListFileiras;
   public ArrayList<RadioButton> UIListFromRadioButtons;
   public ArrayList<RadioButton> UIListToRadioButtons;
-  public ArrayList<Label> UIFundacoesLabel;
+  public ArrayList<ImageView> UIFundacoesLabel;
 
-  @FXML   public ListView<String> fileira0;
-  @FXML   public ListView<String> fileira1;
-  @FXML   public ListView<String> fileira2;
-  @FXML   public ListView<String> fileira3;
-  @FXML   public ListView<String> fileira4;
-  @FXML   public ListView<String> fileira5;
-  @FXML   public ListView<String> fileira6;
-  @FXML   public ListView<String> fileira7;
-  @FXML   public ListView<String> fileira8;
-  @FXML   public ListView<String> fileira9;
-  @FXML   public ListView<String> fileira10;
-  @FXML   public ListView<String> fileira11;
-  @FXML   public ListView<String> fileira12;
-  @FXML   public ListView<String> fileira13;
-  @FXML   public ListView<String> fileira14;
+  @FXML   public ListView<ImageView> fileira0;
+  @FXML   public ListView<ImageView> fileira1;
+  @FXML   public ListView<ImageView> fileira2;
+  @FXML   public ListView<ImageView> fileira3;
+  @FXML   public ListView<ImageView> fileira4;
+  @FXML   public ListView<ImageView> fileira5;
+  @FXML   public ListView<ImageView> fileira6;
+  @FXML   public ListView<ImageView> fileira7;
+  @FXML   public ListView<ImageView> fileira8;
+  @FXML   public ListView<ImageView> fileira9;
+  @FXML   public ListView<ImageView> fileira10;
+  @FXML   public ListView<ImageView> fileira11;
+  @FXML   public ListView<ImageView> fileira12;
+  @FXML   public ListView<ImageView> fileira13;
+  @FXML   public ListView<ImageView> fileira14;
 
   @FXML   public RadioButton fromMonte;
   @FXML   public RadioButton fromFileira0;
@@ -76,28 +77,29 @@ public class UIComponentsBigBerta {
   @FXML   public TextField fromWhich;
 
   @FXML   public Label qtdCartasRestantes;
-  @FXML   public Label proxCartaAComprar;
-  @FXML   public Label monte;
+  @FXML   public ImageView carta3Monte;
+  @FXML   public ImageView proxCartaAComprar;
+  @FXML   public ImageView monte;
 
-  @FXML   public Label fundacao0;
-  @FXML   public Label fundacao1;
-  @FXML   public Label fundacao2;
-  @FXML   public Label fundacao3;
-  @FXML   public Label fundacao4;
-  @FXML   public Label fundacao5;
-  @FXML   public Label fundacao6;
-  @FXML   public Label fundacao7;
-  @FXML   public Label fundacaoK;
+  @FXML   public ImageView fundacao0;
+  @FXML   public ImageView fundacao1;
+  @FXML   public ImageView fundacao2;
+  @FXML   public ImageView fundacao3;
+  @FXML   public ImageView fundacao4;
+  @FXML   public ImageView fundacao5;
+  @FXML   public ImageView fundacao6;
+  @FXML   public ImageView fundacao7;
+  @FXML   public ImageView fundacaoK;
   
   public void initializeAllUIComponents(){
     initializeFileiras();
     initializeFromButtons();
     initializeToButtons();
-    initializeLabelFundacoes();
+    initializeImageViewFundacoes();
   }
 
   public void initializeFileiras(){
-    UIListFileiras = new ArrayList<ListView<String>>();
+    UIListFileiras = new ArrayList<ListView<ImageView>>();
     UIListFileiras.add(fileira0);
     UIListFileiras.add(fileira1);
     UIListFileiras.add(fileira2);
@@ -164,8 +166,8 @@ public class UIComponentsBigBerta {
     UIListToRadioButtons.add(toFundacaoK);
   }
 
-  public void initializeLabelFundacoes(){
-    UIFundacoesLabel = new ArrayList<Label>();
+  public void initializeImageViewFundacoes(){
+    UIFundacoesLabel = new ArrayList<ImageView>();
     UIFundacoesLabel.add(fundacao0);
     UIFundacoesLabel.add(fundacao1);
     UIFundacoesLabel.add(fundacao2);

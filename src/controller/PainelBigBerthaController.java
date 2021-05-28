@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import util.UIComponentsBigBerta;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 public class PainelBigBerthaController extends UIComponentsBigBerta{
 
     private ControllerBigBerta controller;
@@ -98,24 +100,32 @@ public class PainelBigBerthaController extends UIComponentsBigBerta{
 
     public void renderFileiras(){
         for (int i = 0; i <15; i++){
-            ListView<String> lv = UIListFileiras.get(i);
-            lv.getItems().setAll(controller.getStringFileiraByIndex(i));
+            ListView<ImageView> lv = UIListFileiras.get(i);
+            ArrayList<ImageView> images = new ArrayList<ImageView>();
+            for(String path: controller.getPathsFileira(i)){
+                Image image = new Image(path);
+                images.add(new ImageView(image));
+            }
+
+            lv.getItems().setAll(images);
         }
     }
 
     public void renderMontes(){
         qtdCartasRestantes.setText("(" + controller.getQtdRestanteMonte() + ")");
-        monte.setText(controller.getCartaMonte());
-        proxCartaAComprar.setText(controller.getProxCartaMonte());
+        monte.setImage(new Image(controller.getURLMonte(1)));
+        proxCartaAComprar.setImage(new Image(controller.getURLMonte(2)));
+        carta3Monte.setImage(new Image(controller.getURLMonte(3)));
     }
 
     public void renderFundacoes(){
-        ArrayList<String> faces = controller.getUltimasFundacoes();
+        ArrayList<String> faces = controller.getURLUltimasFundacoes();
         for (int i = 0; i < 9; i++) {
-            UIFundacoesLabel.get(i).setText(faces.get(i));
+            // UIFundacoesLabel.get(i).setText(faces.get(i));
+            UIFundacoesLabel.get(i).setImage(new Image(faces.get(i)));
         }
         // UIFundacoesLabel.get(8).setText(faces.get(8));
-        fundacaoK.setText(faces.get(8));
+        fundacaoK.setImage(new Image(faces.get(8)));
     }
 
 }

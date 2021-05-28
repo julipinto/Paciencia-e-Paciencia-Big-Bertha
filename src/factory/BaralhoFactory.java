@@ -16,7 +16,7 @@ public class BaralhoFactory {
     
     private final String[] valores = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};//valores presente do baralho
     private final String[] naipes = {"♣", "♥", "♠", "♦"};//naipes do baralho
-
+    private final String[] nomeNaipes = {"PAUS", "COPAS", "ESPADAS", "OUROS"};
     /**
      * 
      * Sendo construtor de uma factory não se inicializa nada
@@ -37,6 +37,26 @@ public class BaralhoFactory {
         return new Baralho(cartas, qtdBaralho);
     }
 
+    // /**
+    //  * Método que inicia o baralho.
+    //  * 
+    //  * @param qtdBaralho
+    //  * @return ArrayList<Carta>
+    //  */
+    // private ArrayList<Carta> iniciarBaralho(int qtdBaralho){
+    //     ArrayList<Carta> cartas = new ArrayList<Carta>(52*qtdBaralho);
+    //     int quantidadeBaralho = 0;//quantidade de baralhos presente no jogo
+    //     while(quantidadeBaralho < qtdBaralho){
+    //         for(String naipe: naipes){//naipes do baralho
+    //             int i = 0;
+    //             for(String valor: valores){//valores presente do baralho
+    //                 cartas.add(new Carta(naipe, valor, i));//criação de nova carta
+    //                 i = i + 1;
+    //             }
+    //         }
+    //         quantidadeBaralho++;
+    //     } return cartas;
+    // }
     /**
      * Método que inicia o baralho.
      * 
@@ -47,10 +67,12 @@ public class BaralhoFactory {
         ArrayList<Carta> cartas = new ArrayList<Carta>(52*qtdBaralho);
         int quantidadeBaralho = 0;//quantidade de baralhos presente no jogo
         while(quantidadeBaralho < qtdBaralho){
-            for(String naipe: naipes){//naipes do baralho
+            for (int index = 0; index < naipes.length; index++) {
+                String naipe = naipes[index];
+                String nomeNaipe = nomeNaipes[index];
                 int i = 0;
                 for(String valor: valores){//valores presente do baralho
-                    cartas.add(new Carta(naipe, valor, i));//criação de nova carta
+                    cartas.add(new Carta(naipe, valor, i, nomeNaipe));//criação de nova carta
                     i = i + 1;
                 }
             }

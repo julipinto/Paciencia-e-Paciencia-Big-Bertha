@@ -217,29 +217,32 @@ public class ControllerBigBerta {
 
   //Get itens to assembly the UI
 
-  public ArrayList<String> getStringFileiraByIndex(int index){
-    ArrayList<String> strCartas = new ArrayList<String>();
-    for(Carta c: fileiras[index].getPilha()){
-      strCartas.add(c.toPureString());
-    }
-    return strCartas;
-  }
-
-  public String getCartaMonte(){
+  public String getURLCartaMonte(){
     try{
       Carta carta = estoque.get(estoque.size() - 1);
-      return carta.toPureString();
+      return cartaToUrl(carta);
     }catch(Exception e){
-      return "[    ]";
+      return "assets/SEM_CARTA.png";
     }
   }
 
-  public String getProxCartaMonte(){
+  public String getURLProxCartaMonte(){
     try{
       Carta carta = estoque.get(estoque.size() - 2);
-      return carta.toPureString();
+      return cartaToUrl(carta);
     }catch(Exception e){
-      return "[    ]";
+      return "assets/SEM_CARTA.png";
+    }
+  }
+
+  // getURLCarta3Monte
+  
+  public String getURLMonte(int i){
+    try{
+      Carta carta = estoque.get(estoque.size() - i);
+      return cartaToUrl(carta);
+    }catch(Exception e){
+      return "assets/SEM_CARTA.png";
     }
   }
 
@@ -247,23 +250,37 @@ public class ControllerBigBerta {
     return estoque.size();
   }
 
-  public ArrayList<String> getUltimasFundacoes(){
+  public ArrayList<String> getURLUltimasFundacoes(){
     ArrayList<String> cartas = new ArrayList<String>();
 
     for(PilhaFundacao f : fundacoes){
       if(f.isEmpty()){
-        cartas.add("[    ]");
+        cartas.add("assets/SEM_CARTA.png");
       }else{
-        cartas.add(f.getLastCarta().toPureString());
+        cartas.add(cartaToUrl(f.getLastCarta()));
       }
     }
+
     if(fundacaoK.isEmpty()){
-      cartas.add("[    ]");
+      cartas.add("assets/SEM_CARTA.png");
     }else{
-      cartas.add(fundacaoK.getLastCarta().toPureString());
+      cartas.add(cartaToUrl(fundacaoK.getLastCarta()));
     }
     
     return cartas;
+  }
+
+  public ArrayList<String> getPathsFileira(int index) {
+    ArrayList<String> paths = new ArrayList<String>();
+
+    for(Carta c: fileiras[index].getPilha()){
+      paths.add(cartaToUrl(c));
+    }
+    return paths;
+  }
+
+  private String cartaToUrl(Carta c){
+    return "assets/" + c.toImageName() + ".png";
   }
 
 }

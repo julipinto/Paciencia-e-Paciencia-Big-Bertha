@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -176,26 +177,48 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="468.0" text="Fundações">
+      <Label layoutX="16.0" layoutY="445.0" text="Fundações">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="qtdCartasRestantes" layoutX="52.0" layoutY="394.0" text="(4)" />
-      <Label fx:id="proxCartaAComprar" layoutX="17.0" layoutY="417.0" text="Label" />
-      <Label fx:id="monte" layoutX="95.0" layoutY="417.0" text="Label" />
-      <HBox layoutX="17.0" layoutY="516.0" prefHeight="25.0" prefWidth="483.0" style="-fx-spacing: 10;">
+      <Label fx:id="qtdCartasRestantes" layoutX="93.0" layoutY="369.0" text="(4)" />
+      <Label layoutX="14.0" layoutY="545.0" text="Fundação K" />
+      <VBox layoutX="13.0" layoutY="481.0" prefHeight="51.0" prefWidth="421.0">
          <children>
-            <Label fx:id="fundacao0" text="Label" />
-            <Label fx:id="fundacao1" text="Label" />
-            <Label fx:id="fundacao2" text="Label" />
-            <Label fx:id="fundacao3" text="Label" />
-            <Label fx:id="fundacao4" text="Label" />
-            <Label fx:id="fundacao5" text="Label" />
-            <Label fx:id="fundacao6" text="Label" />
-            <Label fx:id="fundacao7" text="Label" />
+            <HBox alignment="CENTER" prefHeight="17.0" prefWidth="488.0" style="-fx-spacing: 16;">
+               <children>
+                  <Label text="Fund 0" />
+                  <Label text="Fund 1" />
+                  <Label text="Fund 2" />
+                  <Label text="Fund 3" />
+                  <Label text="Fund 4" />
+                  <Label text="Fund 5" />
+                  <Label text="Fund 6" />
+                  <Label text="fund 7" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="261.0" style="-fx-spacing: 5;">
+               <children>
+                  <ImageView fx:id="fundacao0" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao1" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao2" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao3" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao4" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao5" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao6" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fundacao7" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="fundacaoK" fitHeight="25.0" fitWidth="48.0" layoutX="14.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="15.0" layoutY="403.0" prefHeight="25.0" prefWidth="200.0" style="-fx-spacing: 5;">
+         <children>
+            <ImageView fx:id="carta3Monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="proxCartaAComprar" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="monte" fitHeight="25.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
-      <Label fx:id="fundacaoK" layoutX="17.0" layoutY="576.0" text="Label" />
    </children>
 </Pane>
