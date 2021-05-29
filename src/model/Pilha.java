@@ -55,12 +55,6 @@ public abstract class Pilha {
         } return null;
     }
 
-    public Carta getFirstCarta(){
-        if(!this.pilha.isEmpty()){
-            return this.pilha.get(0);
-        } return null;
-    }
-
     public int getLastIndex(){
         if(!this.pilha.isEmpty()){
             return pilha.size() -1;
@@ -73,11 +67,6 @@ public abstract class Pilha {
 
     public Carta get(int index){
         return this.pilha.get(index);
-    }
-
-    public ArrayList<Carta> subLista(int fromIndex, int toIndex) {
-        ArrayList<Carta> subLista = new ArrayList<Carta>(this.pilha.subList(fromIndex, toIndex + 1));
-        return subLista;
     }
 
     public ArrayList<Carta> fatiarAPartirDe(int fromIndex){
