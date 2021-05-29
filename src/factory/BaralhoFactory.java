@@ -37,26 +37,6 @@ public class BaralhoFactory {
         return new Baralho(cartas, qtdBaralho);
     }
 
-    // /**
-    //  * Método que inicia o baralho.
-    //  * 
-    //  * @param qtdBaralho
-    //  * @return ArrayList<Carta>
-    //  */
-    // private ArrayList<Carta> iniciarBaralho(int qtdBaralho){
-    //     ArrayList<Carta> cartas = new ArrayList<Carta>(52*qtdBaralho);
-    //     int quantidadeBaralho = 0;//quantidade de baralhos presente no jogo
-    //     while(quantidadeBaralho < qtdBaralho){
-    //         for(String naipe: naipes){//naipes do baralho
-    //             int i = 0;
-    //             for(String valor: valores){//valores presente do baralho
-    //                 cartas.add(new Carta(naipe, valor, i));//criação de nova carta
-    //                 i = i + 1;
-    //             }
-    //         }
-    //         quantidadeBaralho++;
-    //     } return cartas;
-    // }
     /**
      * Método que inicia o baralho.
      * 

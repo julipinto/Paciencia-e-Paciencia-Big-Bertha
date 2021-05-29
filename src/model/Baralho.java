@@ -10,7 +10,8 @@ import util.ListaDeCartas;
  * 
  * @author Adlla Katarine e Daniel Alves
  */
-public class Baralho extends ListaDeCartas{
+public class Baralho{
+    public ArrayList<Carta> baralho;
 
     private int quantidadeBaralhos;//quantidade de baralhos presente no jogo
 
@@ -20,7 +21,7 @@ public class Baralho extends ListaDeCartas{
      * @param quantidadeBaralhos quantidade da baralhos do jogo
      */
     public Baralho(ArrayList<Carta> baralho, int quantidadeBaralhos) {
-        super(baralho);
+        this.baralho = baralho;
         this.quantidadeBaralhos = quantidadeBaralhos;
     }
 
@@ -31,7 +32,7 @@ public class Baralho extends ListaDeCartas{
      * @return ArrayList<Carta>
      */
     public ArrayList<Carta> getBaralho(){
-        return this.cartas;
+        return this.baralho;
     }
 
     
@@ -44,4 +45,23 @@ public class Baralho extends ListaDeCartas{
         return quantidadeBaralhos;
     }
 
+    public ArrayList<Carta> subLista(int fromIndex, int toIndex) {
+      ArrayList<Carta> subLista = new ArrayList<Carta>(this.baralho.subList(fromIndex, toIndex + 1));
+      return subLista;
+    }
+  
+    public int indexUltimaCarta(){
+      if(!baralho.isEmpty()){
+        return baralho.size() -1;
+      }
+      return 0;
+    }
+  
+    public boolean isEmpty(){
+      return baralho.isEmpty();
+    }
+  
+    public int size(){
+      return baralho.size();
+    }
 }

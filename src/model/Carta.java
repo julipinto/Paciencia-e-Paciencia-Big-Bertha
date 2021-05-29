@@ -98,10 +98,6 @@ public class Carta {
         this.visivel = face;
     }
 
-    public String toPureString(){
-        return " [" + naipe +"  "+ valor +"  "+ naipe + "] ";
-    }
-
     public String toImageName(){
         return valor + "_" + nomeNaipe;
     }

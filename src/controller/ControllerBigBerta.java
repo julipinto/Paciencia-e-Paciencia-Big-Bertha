@@ -144,29 +144,33 @@ public class ControllerBigBerta {
   //Se tiver carta na fundação tem que ser de mesmo naipe e distância 1
   //Se a carta for K só pode mover para a f
   private boolean verificarEMoverUmaCarta(Pilha fromPilha, Pilha toPilha){
-    if(!fromPilha.isEmpty()){
-      Carta cartaAMover = fromPilha.getLastCarta();
-      if(toPilha.isEmpty()){
-        if((toPilha instanceof PilhaFileira) || 
-          (toPilha instanceof PilhaFundacao && cartaAMover.getValor().equals("A"))){
+    if(fromPilha.isEmpty()){
+      return false;
+    }
+
+    Carta cartaAMover = fromPilha.getLastCarta();
+    
+    if(toPilha.isEmpty()){
+      if((toPilha instanceof PilhaFileira) || 
+        (toPilha instanceof PilhaFundacao && cartaAMover.getValor().equals("A"))){
+        return moveOne(fromPilha, toPilha);
+      }
+    }else{
+      Carta cartaAComparar = toPilha.getLastCarta();
+      if(
+          toPilha instanceof PilhaFileira && 
+          CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)
+        ){
           return moveOne(fromPilha, toPilha);
-        }
-      }else{
-        Carta cartaAComparar = toPilha.getLastCarta();
-        if(
-            toPilha instanceof PilhaFileira && 
-            CompararCartas.compararPesoECorInvertida(cartaAMover, cartaAComparar)
-          ){
-            return moveOne(fromPilha, toPilha);
-        }else if(
-            toPilha instanceof PilhaFundacao &&
-            CompararCartas.compararPesoEMesmoNaipe(cartaAComparar, cartaAMover) && 
-            !cartaAMover.getValor().equals("K")
-          ){
-            return moveOne(fromPilha, toPilha);
-        }
+      }else if(
+          toPilha instanceof PilhaFundacao &&
+          CompararCartas.compararPesoEMesmoNaipe(cartaAComparar, cartaAMover) && 
+          !cartaAMover.getValor().equals("K")
+        ){
+          return moveOne(fromPilha, toPilha);
       }
     }
+
     return false;
   }
 
@@ -203,8 +207,6 @@ public class ControllerBigBerta {
     }
     return true;
   }
-
-
 
   private boolean moveOne(Pilha fromPilha, Pilha toPilha){
     Carta carta = fromPilha.removerCarta();

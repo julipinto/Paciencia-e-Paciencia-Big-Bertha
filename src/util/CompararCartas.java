@@ -51,11 +51,11 @@ public class CompararCartas {
     }
 
     public static boolean compararPesoECorInvertida(Carta carta1, Carta carta2){
-        return CompararCartas.compararPeso(carta1, carta2) == 1 && CompararCartas.isCoresInvertidas(carta1, carta2);
+        return compararPeso(carta1, carta2) == 1 && isCoresInvertidas(carta1, carta2);
     }
 
     public static boolean compararPesoEMesmoNaipe(Carta carta1, Carta carta2){
-        return CompararCartas.compararPeso(carta1, carta2) == 1 && carta1.getNaipe().equals(carta2.getNaipe());
+        return compararPeso(carta1, carta2) == 1 && carta1.getNaipe().equals(carta2.getNaipe());
     }
 
      /**
