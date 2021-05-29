@@ -2,8 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-import util.ListaDeCartas;
-
 
 /**
  * Classe que contém o baralho criado.
