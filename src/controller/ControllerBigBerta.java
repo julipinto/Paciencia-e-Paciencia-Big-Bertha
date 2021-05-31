@@ -83,7 +83,11 @@ public class ControllerBigBerta {
 
     map.put("monte",estoque);
   }
-
+/**
+ * Recebe um ID vindo da interface gráfica e transforma num id do controller
+ * @param id
+ * @return
+ */
   private String resolveID(String id){
     if(id.contains("fromFileira")){
       return id.replace("fromFileira", "fileira");

@@ -9,6 +9,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+/**
+ * Classe somente com as variáveis do Big Bertha
+ */
 public class UIComponentsBigBerta {
   public ArrayList<ListView<ImageView>> UIListFileiras;
   public ArrayList<RadioButton> UIListFromRadioButtons;
