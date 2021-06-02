@@ -1,8 +1,12 @@
-#  **Como está estruturado**
+# Instalação
+
+O projeto requer que seja instalado o JAVAFX na pasta `./libs`. A versão utilizada é a 11.0.2, e pode ser encontrado em https://gluonhq.com/products/javafx/
+
+# **Como está estruturado**
 
 Seguindo a ideia de fazer um jogo de Paciência o mais modularizado possível, surgiu este projeto.
 
-Com toda as funcionalidades do código estando no src. A classe principal sendo ***Menu.java***.
+Com toda as funcionalidades do código estando no src. A classe principal sendo **_Menu.java_**.
 
 ## **MODEL**
 
@@ -71,14 +75,16 @@ Sendo a responsável para inicialização do jogo, em que pergunta pro usuário 
 Este menu é responsável por todas opções de jogadas disponíveis ao jogo Paciência. Dividido em "dois" menus, um para escolher uma próxima jogada, como por exemplo mover cartas, e outro com as movimentações possíveis entre as pilhas. No "primeiro" menu é sempre verificado se o jogo foi ganho para que possa ser finalizado assim que o usuário complete as quatro fundações.
 
 ## **Facade**
+
 O padrão estrutural Facade foi utilizado para fornecer uma interface mais simples ao Menu Paciência. Assim, esta classe reune todas as funcionalidades referentes aos três controllers e o manu pode se comunicar com elas indiretamente apenas pelo Facade.
 
 ## **Factory Method**
+
 O padrão criacional Factory Method foi utilizado com o objetivo de diminuir as responsabilidades da classe Baralho e em sua facilidade de implementações de outros jogos com baralhos diferentes. O BaralhoFactory é responsável pela criação do baralho, quantidade de baralhos e por embaralha-los.
 
 ## **Iterator**
-O padrão comportamental Iterator foi usado para percorrer os elementos de qualquer pilha.
 
+O padrão comportamental Iterator foi usado para percorrer os elementos de qualquer pilha.
 
 ## PADRÕES QUE PODERIAM SER UTILIZADOS
 
@@ -86,7 +92,7 @@ Uma das maneiras de melhorar a organização do programa seria com a utilizaçã
 
 ## PONTOS FORTES E FRACOS
 
-Apesar de conseguir separar muitos métodos para facilitar a implementação de novas funcionalidades, ainda têm coisas que poderiam ser melhoradas e separadas para se tornar um código melhor e evitar ainda mais repetição do código, como é no caso de alguns métodos em *ControllerPaciencia*.
+Apesar de conseguir separar muitos métodos para facilitar a implementação de novas funcionalidades, ainda têm coisas que poderiam ser melhoradas e separadas para se tornar um código melhor e evitar ainda mais repetição do código, como é no caso de alguns métodos em _ControllerPaciencia_.
 
 Utilizamos o padrão factory para que caso no futuro se decida implementar jogos que utilizem baralhos diferentes, com menos cartas ou utilizando a carta coringa, esse processo de alteração se torne mais facilitado.
 
@@ -95,6 +101,7 @@ Utilizamos o padrão factory para que caso no futuro se decida implementar jogos
 Uma melhorias que pode ser feita no futuro é a implantação de exceções para o tratamento de alguns erros do programa.
 
 # MODELO CONCEITUAL
+
 <img src="./img/diagramas-uml/DiagramaConceitualUML.png"/>
 
 Pode ser acessado pelo link: <https://github.com/dalvesc/JogoDeCartas/blob/main/img/diagramas-uml/DiagramaConceitualUML.png>
